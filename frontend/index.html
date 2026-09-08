@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EarthPulse — Ask Earth. Understand Change. See the Evidence.</title>
+<meta name="description" content="AI-powered satellite intelligence. Ask a question in plain language and get an evidence-backed change analysis from real Sentinel-2 imagery." />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛰️</text></svg>" />
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#04121a" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>
+        </svg>
+      </div>
+      <div>
+        <h1>EarthPulse</h1>
+        <p>Ask Earth · Understand Change · See the Evidence</p>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <span class="pill"><span class="dot wait" id="hdot"></span><span id="hstat">connecting…</span></span>
+      <span class="pill">🛰️ <b>Sentinel-2 L2A</b></span>
+      <span class="pill">SIH <b>26227</b></span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h2>Ask a question. Get <em>evidence</em>, not guesses.</h2>
+    <p>EarthPulse turns a plain-language question into a real satellite analysis — searching the Sentinel-2 archive, comparing dates, filtering false change, and explaining what it found.</p>
+
+    <div class="searchbox">
+      <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+      </svg>
+      <input id="q" autocomplete="off" spellcheck="false"
+             placeholder="Show me where urban expansion occurred in Kokapet between 2019 and 2025" />
+      <button class="btn" id="go">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+        Analyse
+      </button>
+    </div>
+
+    <div class="adv-opts">
+      <label>Detail</label>
+      <select id="gridsel">
+        <option value="360">Fast (360 px)</option>
+        <option value="480" selected>Balanced (480 px)</option>
+        <option value="640">Detailed (640 px)</option>
+      </select>
+      <label>Max cloud</label>
+      <input type="number" id="cloud" value="20" min="1" max="80" step="5" />
+      <span>%</span>
+    </div>
+
+    <div class="chips" id="chips"></div>
+  </section>
+
+  <section id="stage">
+    <div class="card">
+      <div class="card-h">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v4M12 18v4M4.9 4.9l2.9 2.9M16.2 16.2l2.9 2.9M2 12h4M18 12h4M4.9 19.1l2.9-2.9M16.2 7.8l2.9-2.9"/>
+        </svg>
+        Agent pipeline
+        <span class="sp" id="ptime"></span>
+      </div>
+      <div class="card-b"><div class="pipe" id="pipe"></div></div>
+    </div>
+    <div id="results"></div>
+  </section>
+
+  <div class="foot">
+    <p><b>EarthPulse</b> — AI-powered geospatial intelligence · SIH26227 · Space Technology</p>
+    <p style="margin-top:6px">Imagery: Copernicus <b>Sentinel-2 L2A</b> (ESA) via AWS Open Data · Catalog: Element84 Earth Search STAC · Geocoding: OpenStreetMap Nominatim</p>
+    <p style="margin-top:6px;max-width:720px;margin-inline:auto;opacity:.8">EarthPulse reports satellite-derived indications with confidence scores. It does not assert legal or regulatory status. Independent verification is recommended before any enforcement or investment decision.</p>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

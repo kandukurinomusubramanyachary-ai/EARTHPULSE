@@ -1,0 +1,17 @@
+# EarthPulse — Python dependencies
+# Python 3.10 or newer required (developed on 3.13)
+#
+# Install:  pip install -r requirements.txt
+#
+# NOTE ON GDAL: you do NOT need to install GDAL separately.
+# The rasterio wheel bundles its own GDAL build for Windows, macOS and Linux.
+# Never run "pip install gdal" alongside this — it causes version conflicts.
+
+fastapi>=0.110,<1.0
+uvicorn[standard]>=0.27,<1.0
+httpx>=0.26,<1.0
+rasterio>=1.3.9,<2.0
+pyproj>=3.6,<4.0
+numpy>=1.26,<3.0
+scipy>=1.11,<2.0
+pillow>=10.0,<14.0
